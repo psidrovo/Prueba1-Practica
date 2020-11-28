@@ -6,6 +6,7 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Matrimonio;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -19,6 +20,16 @@ public class ControladorMatrimonio {
 
     private RandomAccessFile archivo;
     private int tamanioRegistro;
+
+    public ControladorMatrimonio() {
+        try {
+            archivo = new RandomAccessFile("/matrimonio.dat", "rw");
+            tamanioRegistro = 171;
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error escritura y lectura [DaoUsuario]");
+            System.out.println(ex);
+        }
+    }
 
     public void create(Matrimonio matrimonio) {
         try {
@@ -35,7 +46,7 @@ public class ControladorMatrimonio {
         }
     }
 
-    public List<Matrimonio> todosTelefonosGeneral() {
+    public List<Matrimonio> listaMatrimonios() {
         List<Matrimonio> lstMatrimonios = new ArrayList<>();
         int salto = 0;
         try {

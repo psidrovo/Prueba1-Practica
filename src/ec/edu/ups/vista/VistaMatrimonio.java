@@ -5,21 +5,28 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorMatrimonio;
 import ec.edu.ups.controlador.ControladorPersona;
+import ec.edu.ups.modelo.Matrimonio;
 import ec.edu.ups.modelo.Persona;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Paul Idrovo
  */
-public class Matrimonio extends javax.swing.JInternalFrame {
+public class VistaMatrimonio extends javax.swing.JInternalFrame {
 
     ControladorPersona personaCtrl;
+    ControladorMatrimonio matrimonioCtrl;
 
-    public Matrimonio() {
+    public VistaMatrimonio() {
         initComponents();
         personaCtrl = new ControladorPersona();
+        matrimonioCtrl=new ControladorMatrimonio();
     }
 
     /**
@@ -92,6 +99,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
         jLabel89 = new javax.swing.JLabel();
         txtFechaNacimientoTestigo1 = new javax.swing.JFormattedTextField();
         btnRegistar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtLugar = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("COMPROMETIDO 1"));
 
@@ -538,21 +547,31 @@ public class Matrimonio extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setText("LUGAR:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(btnRegistar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtLugar))
+                    .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(btnRegistar)
+                        .addGap(110, 110, 110))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,9 +585,13 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addComponent(btnRegistar)
-                .addGap(10, 10, 10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtLugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
@@ -687,7 +710,23 @@ public class Matrimonio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCedulaTestigo2KeyTyped
 
     private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
-        // TODO add your handling code here:
+        if (txtNombreComprometido1.getText().equals("") || txtNombreComprometido2.getText().equals("") || txtNombreTestigo1.getText().equals("")
+                || txtNombreTestigo2.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "EXISTEN CAMPOS VACIOS", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Matrimonio matri = new Matrimonio();
+            matri.setComprometido1Id(Integer.parseInt(txtIdComprometido1.getText()));
+            matri.setComprometido2Id(Integer.parseInt(txtIdComprometido2.getText()));
+            matri.setTestigo1Id(Integer.parseInt(txtIdTestigo1.getText()));
+            matri.setTestigo2Id(Integer.parseInt(txtIdTestigo2.getText()));
+            matri.setLugar(txtLugar.getText());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String fecha = sdf.format(new Date());
+            matri.setFecha(fecha);
+            matrimonioCtrl.create(matri);
+            personaCtrl.update(new Persona(Integer.parseInt(txtIdComprometido1.getText()), false));
+            personaCtrl.update(new Persona(Integer.parseInt(txtIdComprometido2.getText()), false));
+        }
     }//GEN-LAST:event_btnRegistarActionPerformed
 
 
@@ -697,6 +736,7 @@ public class Matrimonio extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbGeneroComprometido2;
     private javax.swing.JComboBox<String> cmbGeneroTestigo1;
     private javax.swing.JComboBox<String> cmbGeneroTestigo2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -749,6 +789,7 @@ public class Matrimonio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtIdComprometido2;
     private javax.swing.JTextField txtIdTestigo1;
     private javax.swing.JTextField txtIdTestigo2;
+    private javax.swing.JTextField txtLugar;
     private javax.swing.JTextField txtNombreComprometido1;
     private javax.swing.JTextField txtNombreComprometido2;
     private javax.swing.JTextField txtNombreTestigo1;

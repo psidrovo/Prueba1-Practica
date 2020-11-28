@@ -34,8 +34,8 @@ public class ControladorPersona {
      */
     public ControladorPersona() {
         try {
-            archivo = new RandomAccessFile("datos/usuarios.dat", "rw");
-            tamanioRegistro = 170;
+            archivo = new RandomAccessFile("/persona.dat", "rw");
+            tamanioRegistro = 171;
         } catch (FileNotFoundException ex) {
             System.out.println("Error escritura y lectura [DaoUsuario]");
             System.out.println(ex);
@@ -90,12 +90,7 @@ public class ControladorPersona {
                 archivo.seek(salto);
                 int idLectura = archivo.readInt();
                 if (persona.getId() == idLectura) {
-                    archivo.writeUTF(persona.getCedula());
-                    archivo.writeUTF(persona.getNombre());
-                    archivo.writeUTF(persona.getApellido());
-                    archivo.writeUTF(persona.getDireccion());
-                    archivo.writeBoolean(persona.isGenero());
-                    archivo.writeUTF(persona.getFechaNacimiento());
+                    archivo.seek(salto+166);
                     archivo.writeBoolean(persona.isEstadoCivil());
                     break;
                 }

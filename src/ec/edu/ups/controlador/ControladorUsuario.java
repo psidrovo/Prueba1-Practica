@@ -6,6 +6,7 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Usuario;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -14,9 +15,20 @@ import java.io.RandomAccessFile;
  * @author Paul Idrovo
  */
 public class ControladorUsuario {
+
     private RandomAccessFile archivo;
     private int tamanioRegistro;
-    
+
+    public ControladorUsuario() {
+        try {
+            archivo = new RandomAccessFile("/usuario.dat", "rw");
+            tamanioRegistro = 171;
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error escritura y lectura [DaoUsuario]");
+            System.out.println(ex);
+        }
+    }
+
     public void create(Usuario usuario) {
         try {
             archivo.seek(archivo.length());
@@ -36,7 +48,7 @@ public class ControladorUsuario {
             while (salto < archivo.length()) {
                 archivo.seek(salto);
                 usuario.setJuezId(archivo.readInt());
-                if (usuario.getJuezId()== id) {
+                if (usuario.getJuezId() == id) {
                     return usuario;
                 }
                 salto += tamanioRegistro;
@@ -47,7 +59,6 @@ public class ControladorUsuario {
         return null;
     }
 
-
     public int validar(String credenciales) {
         int salto = 0;
         try {
@@ -55,7 +66,7 @@ public class ControladorUsuario {
                 archivo.seek(salto);
                 int id = archivo.readInt();
                 String validar = archivo.readUTF();
-                validar += archivo.readUTF();                
+                validar += archivo.readUTF();
                 if (validar.equals(credenciales)) {
                     return id;
                 }

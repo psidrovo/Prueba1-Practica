@@ -5,17 +5,22 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorUsuario;
+import ec.edu.ups.modelo.Configurador;
+import ec.edu.ups.modelo.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Paul Idrovo
  */
 public class Sesion extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form INICIOSESION
-     */
+    private ControladorUsuario controladorUsuario;
+    
     public Sesion() {
         initComponents();
+        controladorUsuario = new ControladorUsuario();
     }
 
     /**
@@ -117,21 +122,12 @@ public class Sesion extends javax.swing.JInternalFrame {
             passwordDeco += password[x];
         }
 
-        Usuario inicioSesion = controladorUsuario.inicioSesion(txtUsuario.getText(), passwordDeco);
-        if (inicioSesion != null) {
-            vistaPrincipal.getMisTelefonos().setEnabled(true);
-            vistaPrincipal.getIniciarSesion().setEnabled(false);
-            vistaPrincipal.getSalir().setEnabled(true);
-            vistaPrincipal.getRegistrarse().setEnabled(false);
-            vistaPrincipal.getCerrarSesion().setEnabled(true);
-            vistaPrincipal.getEditarMisDatos().setEnabled(true);
-            txtUsuario.setText("");
-            pswContraseña.setText("");
-            this.setVisible(false);
-            vistaPrincipal.getBienvenido().setText("BIENVENIDO " + inicioSesion.getNombre().toUpperCase().replace("  ", "") + " " + inicioSesion.getApellido().toUpperCase().replace("  ", ""));
+        int id = controladorUsuario.validar(txtUsuario.getText()+passwordDeco);
+        if (id!=0) {
+            Configurador c = Configurador.getConfigurador(id);            
             JOptionPane.showMessageDialog(null, "INICIO DE SESION CORRECTO", "LOGIN", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "USUARIO Y/O CONTRASEÑA INCORRECTOS", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "CORREO Y/O CONTRASEÑA INCORRECTOS", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btIniciarActionPerformed
 

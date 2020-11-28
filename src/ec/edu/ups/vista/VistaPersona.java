@@ -5,17 +5,24 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorPersona;
+import ec.edu.ups.controlador.ControladorUsuario;
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Usuario;
+
 /**
  *
  * @author Paul Idrovo
  */
-public class Persona extends javax.swing.JInternalFrame {
+public class VistaPersona extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Persona
-     */
-    public Persona() {
+    private ControladorPersona personaCtrl;
+    private ControladorUsuario usuarioCtrl;
+    
+    public VistaPersona() {
         initComponents();
+        personaCtrl = new ControladorPersona();
+        usuarioCtrl = new ControladorUsuario();
     }
 
     /**
@@ -29,29 +36,31 @@ public class Persona extends javax.swing.JInternalFrame {
 
         jPanel13 = new javax.swing.JPanel();
         jLabel83 = new javax.swing.JLabel();
-        jTextField62 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel84 = new javax.swing.JLabel();
-        jTextField63 = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         jLabel85 = new javax.swing.JLabel();
-        jTextField64 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel86 = new javax.swing.JLabel();
-        jTextField65 = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
-        jTextField66 = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jLabel88 = new javax.swing.JLabel();
-        jComboBox13 = new javax.swing.JComboBox<>();
+        cmbGenero = new javax.swing.JComboBox<>();
         jLabel89 = new javax.swing.JLabel();
-        jFormattedTextField10 = new javax.swing.JFormattedTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        txtFechaNacimiento = new javax.swing.JFormattedTextField();
+        ckbJuez = new javax.swing.JCheckBox();
+        btnRegistro = new javax.swing.JButton();
         jLabel90 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
-        jTextField67 = new javax.swing.JTextField();
-        jTextField68 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("NUEVO REGISTRO"));
 
         jLabel83.setText("ID");
+
+        txtId.setEditable(false);
 
         jLabel84.setText("CEDULA");
 
@@ -63,16 +72,16 @@ public class Persona extends javax.swing.JInternalFrame {
 
         jLabel88.setText("GENERO");
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR GENERO", "MASCULINO", "FEMENINO" }));
 
         jLabel89.setText("F. NACIMIENTO");
 
-        jCheckBox1.setText("PERTENECE A LA LISTA DE JUECES");
+        ckbJuez.setText("PERTENECE A LA LISTA DE JUECES");
 
-        jButton1.setText("REGISTRAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistro.setText("REGISTRAR");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegistroActionPerformed(evt);
             }
         });
 
@@ -96,26 +105,27 @@ public class Persona extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel89))
                                 .addGap(24, 24, 24)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField65)
-                                    .addComponent(jFormattedTextField10)
-                                    .addComponent(jTextField64)
-                                    .addComponent(jTextField63)
-                                    .addComponent(jTextField62)
-                                    .addComponent(jComboBox13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField66)))
+                                    .addComponent(txtApellido)
+                                    .addComponent(txtFechaNacimiento)
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtCedula)
+                                    .addComponent(txtId)
+                                    .addComponent(cmbGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtDireccion)))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel90)
+                                    .addComponent(jLabel91))
+                                .addGap(241, 241, 241))
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGap(101, 101, 101)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField68)
-                                    .addComponent(jTextField67)))
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel13Layout.createSequentialGroup()
-                                        .addGap(92, 92, 92)
-                                        .addComponent(jButton1))
-                                    .addComponent(jLabel90)
-                                    .addComponent(jLabel91))
-                                .addGap(128, 128, 128))))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnRegistro)
+                                        .addGap(0, 0, 0))
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtCorreo)))))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel13Layout.createSequentialGroup()
@@ -132,7 +142,7 @@ public class Persona extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel86))
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
-                                .addComponent(jCheckBox1)))
+                                .addComponent(ckbJuez)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -142,43 +152,43 @@ public class Persona extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel83)
-                    .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel84)
-                    .addComponent(jTextField63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel85)
-                    .addComponent(jTextField64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel86)
-                    .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel89)
-                    .addComponent(jFormattedTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel87)
-                    .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel88)
-                    .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
+                .addComponent(ckbJuez)
                 .addGap(12, 12, 12)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel90)
-                    .addComponent(jTextField67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel91)
-                    .addComponent(jTextField68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(jButton1)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegistro)
                 .addContainerGap())
         );
 
@@ -198,16 +208,35 @@ public class Persona extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        Persona persona = new Persona();
+        persona.setId(Integer.parseInt(txtId.getText()));
+        persona.setCedula(txtCedula.getText());
+        persona.setNombre(txtNombre.getText());
+        persona.setApellido(txtApellido.getText());
+        persona.setFechaNacimiento(txtFechaNacimiento.getText());
+        persona.setDireccion(txtDireccion.getText());
+        if(cmbGenero.getSelectedIndex()==1){
+            persona.setGenero(true);
+        }else{
+            persona.setGenero(false);
+        }        
+        persona.setEstadoCivil(true);
+        personaCtrl.create(persona);
+        if(ckbJuez.isSelected()){
+            Usuario us = new Usuario();
+            us.setJuezId(Integer.parseInt(txtId.getText()));
+            us.setCorreo(txtCorreo.getText());
+            us.setPassword(txtPassword.getText());
+            usuarioCtrl.create(us);
+        }
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox13;
-    private javax.swing.JFormattedTextField jFormattedTextField10;
+    private javax.swing.JButton btnRegistro;
+    private javax.swing.JCheckBox ckbJuez;
+    private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
@@ -218,12 +247,13 @@ public class Persona extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JTextField jTextField62;
-    private javax.swing.JTextField jTextField63;
-    private javax.swing.JTextField jTextField64;
-    private javax.swing.JTextField jTextField65;
-    private javax.swing.JTextField jTextField66;
-    private javax.swing.JTextField jTextField67;
-    private javax.swing.JTextField jTextField68;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JFormattedTextField txtFechaNacimiento;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

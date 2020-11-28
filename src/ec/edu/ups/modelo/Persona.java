@@ -29,8 +29,9 @@ public class Persona {
      * private String direccion (45 bytes) + 2 extras
      * private bolean genero (1 byte)
      * private String fechaNacimiento (10 bytes) + 2 extras
+     * private boolean estadoCivil 1 byte
      * 
-     * Total 170 bytes
+     * Total 171 bytes
      * 
      */
 
@@ -47,6 +48,12 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
         this.estadoCivil = estadoCivil;
     }
+
+    public Persona(int id, boolean estadoCivil) {
+        this.id = id;
+        this.estadoCivil = estadoCivil;
+    }
+    
     
     public int getId() {
         return id;

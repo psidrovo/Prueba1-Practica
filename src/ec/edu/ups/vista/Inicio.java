@@ -5,17 +5,33 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.modelo.Configurador;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Paul Idrovo
  */
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
+    private Sesion inicioSesion;
+    private VistaDivorcio vistaDivorcio;
+    private VistaMatrimonio vistaMatrimonio;
+    private VistaPersona vistaPersona;
+
     public Inicio() {
-        initComponents();        
+        initComponents();
+        //CREAR VISTAS
+        inicioSesion = new Sesion();
+        vistaDivorcio = new VistaDivorcio();
+        vistaMatrimonio = new VistaMatrimonio();
+        vistaPersona = new VistaPersona();
+
+        //Agregar Panel
+        desktopPane.add(inicioSesion);
+        desktopPane.add(vistaDivorcio);
+        desktopPane.add(vistaMatrimonio);
+        desktopPane.add(vistaPersona);
     }
 
     /**
@@ -29,98 +45,69 @@ public class Inicio extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
-        helpMenu1 = new javax.swing.JMenu();
-        contentMenuItem1 = new javax.swing.JMenuItem();
-        aboutMenuItem1 = new javax.swing.JMenuItem();
+        flInicioSesion = new javax.swing.JMenu();
+        flMatrimonio = new javax.swing.JMenu();
+        flDivorcio = new javax.swing.JMenu();
+        flRegistrar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("INICIAR SESION");
-
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
-
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+        flInicioSesion.setMnemonic('f');
+        flInicioSesion.setText("INICIAR SESION");
+        flInicioSesion.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                flInicioSesionMenuSelected(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        menuBar.add(flInicioSesion);
 
-        menuBar.add(fileMenu);
+        flMatrimonio.setMnemonic('e');
+        flMatrimonio.setText("MATRIMONIO");
+        flMatrimonio.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                flMatrimonioMenuSelected(evt);
+            }
+        });
+        menuBar.add(flMatrimonio);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("MATRIMONIO");
+        flDivorcio.setMnemonic('h');
+        flDivorcio.setText("DIVORCIO");
+        flDivorcio.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                flDivorcioMenuSelected(evt);
+            }
+        });
+        menuBar.add(flDivorcio);
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("DIVORCIO");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        helpMenu1.setMnemonic('h');
-        helpMenu1.setText("REGISTAR");
-
-        contentMenuItem1.setMnemonic('c');
-        contentMenuItem1.setText("Contents");
-        helpMenu1.add(contentMenuItem1);
-
-        aboutMenuItem1.setMnemonic('a');
-        aboutMenuItem1.setText("About");
-        helpMenu1.add(aboutMenuItem1);
-
-        menuBar.add(helpMenu1);
+        flRegistrar.setMnemonic('h');
+        flRegistrar.setText("REGISTAR");
+        flRegistrar.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                flRegistrarMenuSelected(evt);
+            }
+        });
+        flRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flRegistrarMouseClicked(evt);
+            }
+        });
+        menuBar.add(flRegistrar);
 
         setJMenuBar(menuBar);
 
@@ -128,21 +115,69 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    private void flRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flRegistrarMouseClicked
+        ocultar();
+        Configurador c = Configurador.getConfigurador(0);
+        if (c.getId() != 0) {
+            vistaPersona.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "NO SE HA INICIADO SESION", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_flRegistrarMouseClicked
+
+    private void flMatrimonioMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_flMatrimonioMenuSelected
+        ocultar();
+        Configurador c = Configurador.getConfigurador(0);
+        if (c.getId() != 0) {
+            vistaMatrimonio.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "NO SE HA INICIADO SESION", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_flMatrimonioMenuSelected
+
+    private void flDivorcioMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_flDivorcioMenuSelected
+        ocultar();
+        Configurador c = Configurador.getConfigurador(0);
+        if (c.getId() != 0) {
+            vistaDivorcio.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "NO SE HA INICIADO SESION", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_flDivorcioMenuSelected
+
+    private void flRegistrarMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_flRegistrarMenuSelected
+        ocultar();
+        Configurador c = Configurador.getConfigurador(0);
+        if (c.getId() != 0) {
+            vistaPersona.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "NO SE HA INICIADO SESION", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_flRegistrarMenuSelected
+
+    private void flInicioSesionMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_flInicioSesionMenuSelected
+        ocultar();
+        inicioSesion.setVisible(true);
+    }//GEN-LAST:event_flInicioSesionMenuSelected
+
+    private void ocultar() {
+        inicioSesion.setVisible(false);
+        vistaDivorcio.setVisible(false);
+        vistaMatrimonio.setVisible(false);
+        vistaPersona.setVisible(false);
+    }
 
     /**
      * @param args the command line arguments
@@ -180,24 +215,12 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem aboutMenuItem1;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem contentMenuItem1;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenu helpMenu1;
+    private javax.swing.JMenu flDivorcio;
+    private javax.swing.JMenu flInicioSesion;
+    private javax.swing.JMenu flMatrimonio;
+    private javax.swing.JMenu flRegistrar;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
