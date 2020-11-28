@@ -18,6 +18,21 @@ public class Persona {
     boolean genero;
     String fechaNacimiento;
     boolean estadoCivil;
+    
+    /**
+     * Estructura del archivo Persona.
+     * 
+     * private int id (4bytes)
+     * private String cedula (10 bytes) + 2 extras
+     * private String nombre (45 bytes) + 2 extras
+     * private String apellido (45 bytes) + 2 extras
+     * private String direccion (45 bytes) + 2 extras
+     * private bolean genero (1 byte)
+     * private String fechaNacimiento (10 bytes) + 2 extras
+     * 
+     * Total 170 bytes
+     * 
+     */
 
     public Persona() {
     }

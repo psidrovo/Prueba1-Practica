@@ -5,17 +5,21 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorPersona;
+import ec.edu.ups.modelo.Persona;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Paul Idrovo
  */
 public class Matrimonio extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Matrimonio
-     */
+    ControladorPersona personaCtrl;
+
     public Matrimonio() {
         initComponents();
+        personaCtrl = new ControladorPersona();
     }
 
     /**
@@ -29,83 +33,100 @@ public class Matrimonio extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtIdComprometido1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCedulaComprometido1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtNombreComprometido1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtApellidoComprometido1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtDireccionComprometido1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbGeneroComprometido1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtFechaNacimientoComprometido1 = new javax.swing.JFormattedTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        txtIdComprometido2 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField23 = new javax.swing.JTextField();
+        txtCedulaComprometido2 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
+        txtNombreComprometido2 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
+        txtApellidoComprometido2 = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
+        txtDireccionComprometido2 = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        cmbGeneroComprometido2 = new javax.swing.JComboBox<>();
         jLabel42 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
+        txtFechaNacimientoComprometido2 = new javax.swing.JFormattedTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel76 = new javax.swing.JLabel();
-        jTextField57 = new javax.swing.JTextField();
+        txtIdTestigo2 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
-        jTextField58 = new javax.swing.JTextField();
+        txtCedulaTestigo2 = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
-        jTextField59 = new javax.swing.JTextField();
+        txtNombreTestigo2 = new javax.swing.JTextField();
         jLabel79 = new javax.swing.JLabel();
-        jTextField60 = new javax.swing.JTextField();
+        txtApellidoTestigo2 = new javax.swing.JTextField();
         jLabel80 = new javax.swing.JLabel();
-        jTextField61 = new javax.swing.JTextField();
+        txtDireccionTestigo2 = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
-        jComboBox12 = new javax.swing.JComboBox<>();
+        cmbGeneroTestigo2 = new javax.swing.JComboBox<>();
         jLabel82 = new javax.swing.JLabel();
-        jFormattedTextField9 = new javax.swing.JFormattedTextField();
+        txtFechaNacimientoTestigo2 = new javax.swing.JFormattedTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel83 = new javax.swing.JLabel();
-        jTextField62 = new javax.swing.JTextField();
+        txtIdTestigo1 = new javax.swing.JTextField();
         jLabel84 = new javax.swing.JLabel();
-        jTextField63 = new javax.swing.JTextField();
+        txtCedulaTestigo1 = new javax.swing.JTextField();
         jLabel85 = new javax.swing.JLabel();
-        jTextField64 = new javax.swing.JTextField();
+        txtNombreTestigo1 = new javax.swing.JTextField();
         jLabel86 = new javax.swing.JLabel();
-        jTextField65 = new javax.swing.JTextField();
+        txtApellidoTestigo1 = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
-        jTextField66 = new javax.swing.JTextField();
+        txtDireccionTestigo1 = new javax.swing.JTextField();
         jLabel88 = new javax.swing.JLabel();
-        jComboBox13 = new javax.swing.JComboBox<>();
+        cmbGeneroTestigo1 = new javax.swing.JComboBox<>();
         jLabel89 = new javax.swing.JLabel();
-        jFormattedTextField10 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        txtFechaNacimientoTestigo1 = new javax.swing.JFormattedTextField();
+        btnRegistar = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("COMPROMETIDO 1"));
 
         jLabel2.setText("ID");
 
+        txtIdComprometido1.setEnabled(false);
+
         jLabel3.setText("CEDULA");
+
+        txtCedulaComprometido1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaComprometido1KeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("NOMBRE");
 
+        txtNombreComprometido1.setEnabled(false);
+
         jLabel5.setText("APELLIDO");
+
+        txtApellidoComprometido1.setEnabled(false);
 
         jLabel6.setText("DIRECCION");
 
+        txtDireccionComprometido1.setEnabled(false);
+
         jLabel7.setText("GENERO");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGeneroComprometido1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR GENERO", "MASCULINO", "FEMENINO" }));
+        cmbGeneroComprometido1.setEnabled(false);
 
-        jLabel8.setText("APELLIDO");
+        jLabel8.setText("F. NACIMIENTO");
+
+        txtFechaNacimientoComprometido1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,8 +145,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtDireccionComprometido1)
+                            .addComponent(cmbGeneroComprometido1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +154,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel5)
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField1)
-                                    .addComponent(jTextField5)))
+                                    .addComponent(txtFechaNacimientoComprometido1)
+                                    .addComponent(txtApellidoComprometido1)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -142,9 +163,9 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4))))))
+                                    .addComponent(txtIdComprometido1)
+                                    .addComponent(txtCedulaComprometido1)
+                                    .addComponent(txtNombreComprometido1))))))
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,31 +174,31 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimientoComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbGeneroComprometido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -185,19 +206,36 @@ public class Matrimonio extends javax.swing.JInternalFrame {
 
         jLabel30.setText("ID");
 
+        txtIdComprometido2.setEnabled(false);
+
         jLabel31.setText("CEDULA");
+
+        txtCedulaComprometido2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaComprometido2KeyTyped(evt);
+            }
+        });
 
         jLabel38.setText("NOMBRE");
 
+        txtNombreComprometido2.setEnabled(false);
+
         jLabel39.setText("APELLIDO");
+
+        txtApellidoComprometido2.setEnabled(false);
 
         jLabel40.setText("DIRECCION");
 
+        txtDireccionComprometido2.setEnabled(false);
+
         jLabel41.setText("GENERO");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGeneroComprometido2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR GENERO", "MASCULINO", "FEMENINO" }));
+        cmbGeneroComprometido2.setEnabled(false);
 
-        jLabel42.setText("APELLIDO");
+        jLabel42.setText("F. NACIMIENTO");
+
+        txtFechaNacimientoComprometido2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -216,29 +254,29 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                             .addComponent(jLabel41))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField26)
-                            .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtDireccionComprometido2)
+                            .addComponent(cmbGeneroComprometido2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel38)
                                 .addGap(34, 34, 34)
-                                .addComponent(jTextField24))
+                                .addComponent(txtNombreComprometido2))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel39)
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                    .addComponent(jTextField25)))
+                                    .addComponent(txtFechaNacimientoComprometido2, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                    .addComponent(txtApellidoComprometido2)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel31)
                                     .addComponent(jLabel30))
                                 .addGap(37, 37, 37)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField23)
-                                    .addComponent(jTextField22))))))
+                                    .addComponent(txtCedulaComprometido2)
+                                    .addComponent(txtIdComprometido2))))))
                 .addGap(15, 15, 15))
         );
         jPanel5Layout.setVerticalGroup(
@@ -247,31 +285,31 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
-                    .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimientoComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbGeneroComprometido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -279,19 +317,36 @@ public class Matrimonio extends javax.swing.JInternalFrame {
 
         jLabel76.setText("ID");
 
+        txtIdTestigo2.setEnabled(false);
+
         jLabel77.setText("CEDULA");
+
+        txtCedulaTestigo2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaTestigo2KeyTyped(evt);
+            }
+        });
 
         jLabel78.setText("NOMBRE");
 
+        txtNombreTestigo2.setEnabled(false);
+
         jLabel79.setText("APELLIDO");
+
+        txtApellidoTestigo2.setEnabled(false);
 
         jLabel80.setText("DIRECCION");
 
+        txtDireccionTestigo2.setEnabled(false);
+
         jLabel81.setText("GENERO");
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGeneroTestigo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR GENERO", "MASCULINO", "FEMENINO" }));
+        cmbGeneroTestigo2.setEnabled(false);
 
-        jLabel82.setText("APELLIDO");
+        jLabel82.setText("F. NACIMIENTO");
+
+        txtFechaNacimientoTestigo2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -310,8 +365,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                             .addComponent(jLabel81))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField61)
-                            .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtDireccionTestigo2)
+                            .addComponent(cmbGeneroTestigo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,8 +374,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel79)
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField9)
-                                    .addComponent(jTextField60)))
+                                    .addComponent(txtFechaNacimientoTestigo2)
+                                    .addComponent(txtApellidoTestigo2)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel78)
@@ -328,9 +383,9 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel76))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField57)
-                                    .addComponent(jTextField58)
-                                    .addComponent(jTextField59))))))
+                                    .addComponent(txtIdTestigo2)
+                                    .addComponent(txtCedulaTestigo2)
+                                    .addComponent(txtNombreTestigo2))))))
                 .addGap(15, 15, 15))
         );
         jPanel12Layout.setVerticalGroup(
@@ -339,31 +394,31 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel76)
-                    .addComponent(jTextField57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77)
-                    .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel78)
-                    .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel79)
-                    .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82)
-                    .addComponent(jFormattedTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimientoTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel80)
-                    .addComponent(jTextField61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel81)
-                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbGeneroTestigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -371,19 +426,36 @@ public class Matrimonio extends javax.swing.JInternalFrame {
 
         jLabel83.setText("ID");
 
+        txtIdTestigo1.setEnabled(false);
+
         jLabel84.setText("CEDULA");
+
+        txtCedulaTestigo1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaTestigo1KeyTyped(evt);
+            }
+        });
 
         jLabel85.setText("NOMBRE");
 
+        txtNombreTestigo1.setEnabled(false);
+
         jLabel86.setText("APELLIDO");
+
+        txtApellidoTestigo1.setEnabled(false);
 
         jLabel87.setText("DIRECCION");
 
+        txtDireccionTestigo1.setEnabled(false);
+
         jLabel88.setText("GENERO");
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGeneroTestigo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR GENERO", "MASCULINO", "FEMENINO" }));
+        cmbGeneroTestigo1.setEnabled(false);
 
-        jLabel89.setText("APELLIDO");
+        jLabel89.setText("F. NACIMIENTO");
+
+        txtFechaNacimientoTestigo1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -402,8 +474,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                             .addComponent(jLabel88))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField66)
-                            .addComponent(jComboBox13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtDireccionTestigo1)
+                            .addComponent(cmbGeneroTestigo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,8 +483,8 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel86)
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                    .addComponent(jTextField65)))
+                                    .addComponent(txtFechaNacimientoTestigo1, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                    .addComponent(txtApellidoTestigo1)))
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel85)
@@ -420,9 +492,9 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel83))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField62)
-                                    .addComponent(jTextField63)
-                                    .addComponent(jTextField64))))))
+                                    .addComponent(txtIdTestigo1)
+                                    .addComponent(txtCedulaTestigo1)
+                                    .addComponent(txtNombreTestigo1))))))
                 .addGap(15, 15, 15))
         );
         jPanel13Layout.setVerticalGroup(
@@ -431,35 +503,40 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel83)
-                    .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel84)
-                    .addComponent(jTextField63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel85)
-                    .addComponent(jTextField64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel86)
-                    .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel89)
-                    .addComponent(jFormattedTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimientoTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel87)
-                    .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel88)
-                    .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbGeneroTestigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jButton1.setText("REGISTRAR");
+        btnRegistar.setText("REGISTRAR");
+        btnRegistar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -475,8 +552,7 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(266, 266, 266)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addComponent(btnRegistar))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,62 +563,141 @@ public class Matrimonio extends javax.swing.JInternalFrame {
                         .addGap(0, 0, 0)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
-                .addComponent(jButton1)
+                .addComponent(btnRegistar)
                 .addGap(10, 10, 10))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtCedulaComprometido1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaComprometido1KeyTyped
+        char validar = evt.getKeyChar();
+        if (validar == '\n') {
+            Persona persona = personaCtrl.buscarCedula(txtCedulaComprometido1.getText());
+            if (persona != null) {
+                if (persona.isEstadoCivil()) {
+                    if (txtCedulaComprometido1.getText().equals(txtCedulaComprometido2.getText()) || txtCedulaComprometido1.getText().equals(txtCedulaTestigo1.getText())
+                            || txtCedulaComprometido1.getText().equals(txtCedulaTestigo2.getText())) {
+                        JOptionPane.showMessageDialog(null, "ESTA PERSONA SE ENCUENTRA EN LA LISTA DE LOS PARTICIPANTES", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        txtIdComprometido1.setText(persona.getId() + "");
+                        txtNombreComprometido1.setText(persona.getNombre());
+                        txtApellidoComprometido1.setText(persona.getApellido());
+                        txtFechaNacimientoComprometido1.setText(persona.getFechaNacimiento());
+                        txtDireccionComprometido1.setText(persona.getDireccion());
+                        if (persona.isGenero()) {
+                            cmbGeneroComprometido1.setSelectedIndex(1);
+                        } else {
+                            cmbGeneroComprometido1.setSelectedIndex(2);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA PERSONA YA ESTA EN UN MATRIMONIO", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "CEDULA NO EXISTE", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_txtCedulaComprometido1KeyTyped
+
+    private void txtCedulaComprometido2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaComprometido2KeyTyped
+        char validar = evt.getKeyChar();
+        if (validar == '\n') {
+            Persona persona = personaCtrl.buscarCedula(txtCedulaComprometido1.getText());
+            if (persona != null) {
+                if (persona.isEstadoCivil()) {
+                    if (txtCedulaTestigo1.getText().equals(txtCedulaComprometido1.getText()) || txtCedulaTestigo1.getText().equals(txtCedulaComprometido2.getText())
+                            || txtCedulaTestigo1.getText().equals(txtCedulaTestigo2.getText())) {
+                        JOptionPane.showMessageDialog(null, "ESTA PERSONA SE ENCUENTRA EN LA LISTA DE LOS PARTICIPANTES", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        txtIdComprometido1.setText(persona.getId() + "");
+                        txtNombreComprometido1.setText(persona.getNombre());
+                        txtApellidoComprometido1.setText(persona.getApellido());
+                        txtFechaNacimientoComprometido1.setText(persona.getFechaNacimiento());
+                        txtDireccionComprometido1.setText(persona.getDireccion());
+                        if (persona.isGenero()) {
+                            cmbGeneroComprometido1.setSelectedIndex(1);
+                        } else {
+                            cmbGeneroComprometido1.setSelectedIndex(2);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA PERSONA YA ESTA EN UN MATRIMONIO", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "CEDULA NO EXISTE", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_txtCedulaComprometido2KeyTyped
+
+    private void txtCedulaTestigo1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaTestigo1KeyTyped
+        char validar = evt.getKeyChar();
+        if (validar == '\n') {
+            Persona persona = personaCtrl.buscarCedula(txtCedulaComprometido1.getText());
+            if (persona != null) {
+                if (txtCedulaTestigo2.getText().equals(txtCedulaComprometido1.getText()) || txtCedulaTestigo2.getText().equals(txtCedulaComprometido2.getText())
+                        || txtCedulaTestigo2.getText().equals(txtCedulaTestigo1.getText())) {
+                    JOptionPane.showMessageDialog(null, "ESTA PERSONA SE ENCUENTRA EN LA LISTA DE LOS PARTICIPANTES", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    txtIdComprometido1.setText(persona.getId() + "");
+                    txtNombreComprometido1.setText(persona.getNombre());
+                    txtApellidoComprometido1.setText(persona.getApellido());
+                    txtFechaNacimientoComprometido1.setText(persona.getFechaNacimiento());
+                    txtDireccionComprometido1.setText(persona.getDireccion());
+                    if (persona.isGenero()) {
+                        cmbGeneroComprometido1.setSelectedIndex(1);
+                    } else {
+                        cmbGeneroComprometido1.setSelectedIndex(2);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "CEDULA NO EXISTE", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_txtCedulaTestigo1KeyTyped
+
+    private void txtCedulaTestigo2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaTestigo2KeyTyped
+        char validar = evt.getKeyChar();
+        if (validar == '\n') {
+            Persona persona = personaCtrl.buscarCedula(txtCedulaComprometido1.getText());
+            if (persona != null) {
+                if (txtCedulaTestigo2.getText().equals(txtCedulaComprometido1.getText()) || txtCedulaTestigo2.getText().equals(txtCedulaComprometido2.getText())
+                        || txtCedulaTestigo2.getText().equals(txtCedulaTestigo1.getText())) {
+                    JOptionPane.showMessageDialog(null, "ESTA PERSONA SE ENCUENTRA EN LA LISTA DE LOS PARTICIPANTES", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    txtIdComprometido1.setText(persona.getId() + "");
+                    txtNombreComprometido1.setText(persona.getNombre());
+                    txtApellidoComprometido1.setText(persona.getApellido());
+                    txtFechaNacimientoComprometido1.setText(persona.getFechaNacimiento());
+                    txtDireccionComprometido1.setText(persona.getDireccion());
+                    if (persona.isGenero()) {
+                        cmbGeneroComprometido1.setSelectedIndex(1);
+                    } else {
+                        cmbGeneroComprometido1.setSelectedIndex(2);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "CEDULA NO EXISTE", "ERROR DE DATOS", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_txtCedulaTestigo2KeyTyped
+
+    private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox13;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField10;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
-    private javax.swing.JFormattedTextField jFormattedTextField6;
-    private javax.swing.JFormattedTextField jFormattedTextField7;
-    private javax.swing.JFormattedTextField jFormattedTextField8;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JButton btnRegistar;
+    private javax.swing.JComboBox<String> cmbGeneroComprometido1;
+    private javax.swing.JComboBox<String> cmbGeneroComprometido2;
+    private javax.swing.JComboBox<String> cmbGeneroTestigo1;
+    private javax.swing.JComboBox<String> cmbGeneroTestigo2;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -552,30 +707,9 @@ public class Matrimonio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -591,66 +725,33 @@ public class Matrimonio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField56;
-    private javax.swing.JTextField jTextField57;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField60;
-    private javax.swing.JTextField jTextField61;
-    private javax.swing.JTextField jTextField62;
-    private javax.swing.JTextField jTextField63;
-    private javax.swing.JTextField jTextField64;
-    private javax.swing.JTextField jTextField65;
-    private javax.swing.JTextField jTextField66;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtApellidoComprometido1;
+    private javax.swing.JTextField txtApellidoComprometido2;
+    private javax.swing.JTextField txtApellidoTestigo1;
+    private javax.swing.JTextField txtApellidoTestigo2;
+    private javax.swing.JTextField txtCedulaComprometido1;
+    private javax.swing.JTextField txtCedulaComprometido2;
+    private javax.swing.JTextField txtCedulaTestigo1;
+    private javax.swing.JTextField txtCedulaTestigo2;
+    private javax.swing.JTextField txtDireccionComprometido1;
+    private javax.swing.JTextField txtDireccionComprometido2;
+    private javax.swing.JTextField txtDireccionTestigo1;
+    private javax.swing.JTextField txtDireccionTestigo2;
+    private javax.swing.JFormattedTextField txtFechaNacimientoComprometido1;
+    private javax.swing.JFormattedTextField txtFechaNacimientoComprometido2;
+    private javax.swing.JFormattedTextField txtFechaNacimientoTestigo1;
+    private javax.swing.JFormattedTextField txtFechaNacimientoTestigo2;
+    private javax.swing.JTextField txtIdComprometido1;
+    private javax.swing.JTextField txtIdComprometido2;
+    private javax.swing.JTextField txtIdTestigo1;
+    private javax.swing.JTextField txtIdTestigo2;
+    private javax.swing.JTextField txtNombreComprometido1;
+    private javax.swing.JTextField txtNombreComprometido2;
+    private javax.swing.JTextField txtNombreTestigo1;
+    private javax.swing.JTextField txtNombreTestigo2;
     // End of variables declaration//GEN-END:variables
 }

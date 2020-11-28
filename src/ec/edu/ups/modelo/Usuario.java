@@ -14,6 +14,18 @@ public class Usuario {
     int juezId;
     String correo;
     String password;
+    
+    /**
+     * Estructura del archivo Usuario.
+     * 
+     * private int juezId (4bytes)
+     * private int comprometido1Id (4bytes)
+     * private String correo (45 bytes) + 2 extras
+     * private String password (45 bytes) + 2 extras
+     * 
+     * Total 102 bytes
+     * 
+     */
 
     public Usuario() {
     }

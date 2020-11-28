@@ -10,23 +10,36 @@ package ec.edu.ups.modelo;
  * @author Paul Idrovo
  */
 public class Matrimonio {
-    
+
     int id;
     int comprometido1Id;
     int comprometido2Id;
     int testigo1Id;
+    int testigo2Id;
     int juezId;
     String fecha;
     String lugar;
 
+    /**
+     * Estructura del archivo Matrimonio.
+     *
+     * private int id (4bytes) private int comprometido1Id (4bytes) private int
+     * comprometido2Id (4bytes) private int testigo1Id (4bytes) private int
+     * testigo2Id (4bytes) private int juezId (4bytes) private String fecha (10
+     * bytes) + 2 extras private String lugar (45 bytes) + 2 extras
+     *
+     * Total 83 bytes
+     *
+     */
     public Matrimonio() {
     }
 
-    public Matrimonio(int id, int comprometido1Id, int comprometido2Id, int testigo1Id, int juezId, String fecha, String lugar) {
+    public Matrimonio(int id, int comprometido1Id, int comprometido2Id, int testigo1Id, int testigo2Id, int juezId, String fecha, String lugar) {
         this.id = id;
         this.comprometido1Id = comprometido1Id;
         this.comprometido2Id = comprometido2Id;
         this.testigo1Id = testigo1Id;
+        this.testigo2Id = testigo2Id;
         this.juezId = juezId;
         this.fecha = fecha;
         this.lugar = lugar;
@@ -64,6 +77,14 @@ public class Matrimonio {
         this.testigo1Id = testigo1Id;
     }
 
+    public int getTestigo2Id() {
+        return testigo2Id;
+    }
+
+    public void setTestigo2Id(int testigo2Id) {
+        this.testigo2Id = testigo2Id;
+    }
+
     public int getJuezId() {
         return juezId;
     }
@@ -87,7 +108,5 @@ public class Matrimonio {
     public void setLugar(String lugar) {
         this.lugar = lugar;
     }
-    
-    
-    
+
 }
